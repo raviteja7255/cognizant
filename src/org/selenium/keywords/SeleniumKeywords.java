@@ -166,7 +166,7 @@ public class SeleniumKeywords
 		try{
 					ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
 			        public Boolean apply(WebDriver driver) {
-			          return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("Add to cart");
+			          return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 			        }
 			      };
 			      

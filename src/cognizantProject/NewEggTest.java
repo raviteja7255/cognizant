@@ -33,8 +33,8 @@ public class NewEggTest
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
 		driver= new ChromeDriver();
 		driver.get("https://www.newegg.com/");
-	    driver.findElement(By.xpath("//a[starts-with(text(),'Log')]")).click();
 		driver.manage().window().maximize();
+	    driver.findElement(By.xpath("//a[starts-with(text(),'Log')]")).click();
 		keyword.waitForPageToLoad();
 	}
 
@@ -103,16 +103,25 @@ public class NewEggTest
 		driver.findElement(By.xpath("//a[@title='Shopping Cart with Items']")).click();
 	}
 	
+	@Then("^edit and remove an item from cart$")
+	public void edit_and_remove_an_item_from_cart() throws Exception {
+	    List<WebElement> ctItem = driver.findElements(By.xpath("//input[@name='CHKITEM']"));
+	    ctItem.get(1).click();
+	    driver.findElement(By.xpath("//*[@id='removeFromCart']")).click();
+	}
+	
 	@Then("^click on checkout and logout$")
 	public void click_on_checkout_and_logout() throws Exception {
+		Thread.sleep(3000);
 	    driver.findElement(By.xpath("//a[@title='Secure Checkout']")).click();
 	    Thread.sleep(3000);
 	    driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div[2]/div[1]/div/div[4]/div/div/a")).click();
 	    Thread.sleep(5000);
-	    driver.navigate().back();
+	    driver.navigate().to("https://secure.newegg.com/Shopping/ShoppingCart.aspx?submit=ChangeItem");
+	    Thread.sleep(3000);
 	    WebElement w1 = driver.findElement(By.xpath("//ins[contains(text(),'My Account')]"));
 	    new Actions(driver).moveToElement(w1).perform();
-	    Thread.sleep(6000);
+	    Thread.sleep(4000);
 	    driver.findElement(By.xpath("//div[@class='top-nav-menu']/div/ul/li[4]/a")).click();
 	}
 	

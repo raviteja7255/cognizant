@@ -10,4 +10,4 @@ Feature: Test newegg application
     Then click on checkout and logout
     Then login to forgot password
     Then open gmail and verify the rest password
-	    Then application should be closed
+	   Then application should be closed

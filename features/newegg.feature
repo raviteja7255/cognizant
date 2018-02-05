@@ -6,6 +6,7 @@ Feature: Test newegg application
     Then verify user home page
     Then Search for the items given in the excel file and add them to cart
     Then Validate whether the right products are added into the cart
+    Then edit and remove an item from cart
     Then click on checkout and logout
     Then login to forgot password
     Then open gmail and verify the rest password

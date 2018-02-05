@@ -149,8 +149,6 @@ public class NewEggTest
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("2018@Challenge");
 		driver.findElement(By.xpath("//span[text()='Next']")).click();
-		/*List<WebElement> lst = driver.findElements(By.xpath("//table[@class='F cf zt']/tbody/tr[0]/td"));
-		lst.get(0).click();*/
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@class='gb_Nc gb_jb gb_Fg gb_R']/a/span")).click();
 		driver.findElement(By.xpath("//*[@id='gb_71']")).click();

@@ -1,13 +1,10 @@
 package cognizantProject;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -96,6 +93,15 @@ public class NewEggTest
 
 			driver.findElement(By.xpath("//div[@id='landingpage-cart']//span[text()='ADD TO CART ']")).click();
 		}
+		System.out.println("---");
+		if(driver.findElement(By.xpath("//div[@id='custom']")).isDisplayed())
+		{
+			Thread.sleep(3000);
+			System.out.println("Inside the loop");
+			WebElement element = driver.findElement(By.xpath("//button[text()='Add to cart']"));
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].click();", element);
+		}
 	}
 
 	@Then("^Validate whether the right products are added into the cart$")
@@ -150,7 +156,7 @@ public class NewEggTest
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("2018@Challenge");
 		driver.findElement(By.xpath("//span[text()='Next']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@class='gb_Nc gb_jb gb_Fg gb_R']/a/span")).click();
+		driver.findElement(By.xpath("//a[@class='gb_b gb_fb gb_R']")).click();
 		driver.findElement(By.xpath("//*[@id='gb_71']")).click();
 		driver.switchTo().window(tabs.get(0));
 		Thread.sleep(3000);
